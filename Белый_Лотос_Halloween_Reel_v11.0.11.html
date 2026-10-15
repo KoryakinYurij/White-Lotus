@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Белый Лотос × Halloween — Reel v11.0.10</title>
+<title>Белый Лотос × Halloween — Reel v11.0.11</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
@@ -209,7 +209,7 @@ const sp1=dec('spider','left:63cqw;top:-2cqw;width:14cqw;z-index:2',{p:'s1',c:'s
 mk('','position:absolute;left:50%;bottom:99%;width:.35cqw;height:70cqw;background:#000;translate:-50% 0;filter:drop-shadow(0 0 .5cqw rgba(168,85,247,.9))',sp1);
 A(sp1,[{translate:'0 -50cqw'},{translate:'0 34cqw'}],.4,.9,{easing:BO});
 A(sp1,[{translate:'0 34cqw'},{translate:'0 38cqw'}],1.5,.5,{direction:'alternate',iterations:2,fill:'none',easing:'ease-in-out'});
-letters($('a1'),-.5,.06,i=>[{top:'1.3em'},{top:'0em'}],.6,'cubic-bezier(.2,.9,.25,1)');
+letters($('a1'),-.5,.06,i=>[{translate:'0 1.3em'},{translate:'0 0'}],.6,'cubic-bezier(.2,.9,.25,1)');
 hit(1.0,1.2,90);
 A($('a1'),[{filter:'drop-shadow(0 0 3.2cqw rgba(255,122,26,.55))'},{filter:'drop-shadow(0 0 9cqw rgba(255,150,40,.95))'}],1.0,.5,{direction:'alternate',iterations:2,fill:'none'});
 wipe($('a2'),1.0,.55,'translateX(8cqw)');
@@ -294,7 +294,8 @@ A($('d3b'),[{opacity:0,transform:'scaleY(0)'},{opacity:1,transform:'none'}],18.2
 A($('d4'),[{opacity:0,transform:'translateX(4cqw)'},{opacity:1,transform:'none'}],18.5,.5);
 const nbi=$('d5').querySelectorAll('i'),nbs=$('d5').querySelector('span');
 A(nbi[0],[{transform:'scaleX(0)'},{transform:'none'}],19.0,.6,{easing:SL});A(nbi[1],[{transform:'scaleX(0)'},{transform:'none'}],19.0,.6,{easing:SL});
-A(nbs,[{opacity:0},{opacity:1}],19.15,.5,{easing:'linear'});
+// Д9: печать подтверждения — короткий удар, сжатие и мягкий возврат без отдельного свечения
+A(nbs,[{opacity:0,transform:'translateY(-2cqw) scale(1.12)'},{opacity:1,transform:'translateY(.35cqw) scale(.96)',offset:.65},{opacity:1,transform:'none'}],19.0,.65,{easing:'cubic-bezier(.2,.9,.2,1)'});
 const dpC=dec('pumpC','left:-9cqw;bottom:-8cqw;width:36cqw;filter:'+GP2,{p:'s4',tilt:-9}),dpB=dec('pumpB','right:-9cqw;bottom:-7cqw;width:34cqw;filter:'+GP2,{p:'s4',tilt:8});
 rise(dpC,16.85,35,{r:-25});rise(dpB,17.0,35,{r:25});flame(dpC,16.85,3.2,GP2);flame(dpB,17.05,2.8,GP2);
 bat('s4',17.3,40,11,2.6,-1,'bat1');bat('s4',18.9,52,10,2.4,1,'bat2');
@@ -313,7 +314,8 @@ const ob=$('orn').querySelectorAll('i');
 A(ob[0],[{transform:'scaleX(0)'},{transform:'none'}],23.25,.6,{easing:SL});A(ob[1],[{transform:'scaleX(0)'},{transform:'none'}],23.25,.6,{easing:SL});
 A($('orn').querySelector('svg'),[{opacity:0,transform:'scale(0) rotate(-90deg)'},{opacity:1,transform:'none'}],23.45,.5,{easing:BO});
 A($('k1'),[{opacity:0,transform:'translateY(5cqw) scale(.94)',filter:'blur(1.2cqw) drop-shadow(0 0 3cqw rgba(255,122,26,.5))'},{opacity:1,transform:'none',filter:'blur(0) drop-shadow(0 0 3cqw rgba(255,122,26,.5))'}],23.5,.8);
-A($('k1'),[{backgroundPosition:'100% 0'},{backgroundPosition:'0% 0'}],24.5,1.0,{easing:'ease-in-out'});
+// Ф2: короткий блик на ссылке раз в такт (120 BPM), после появления текста
+A($('k1'),[{backgroundPosition:'100% 0'},{backgroundPosition:'100% 0',offset:.4},{backgroundPosition:'0% 0',offset:.7},{backgroundPosition:'100% 0'}],23.5,2.0,{iterations:Infinity,easing:'ease-in-out'});
 A($('lkx'),[{scale:1},{scale:1.03}],24.0,.5,{direction:'alternate',iterations:4,fill:'none',easing:'ease-in-out'});
 A($('ulx'),[{opacity:0,transform:'scaleX(0)'},{opacity:1,transform:'none'}],24.0,.7,{easing:SL});
 A($('cp'),[{opacity:0,letterSpacing:'.6em',transform:'translateY(1.5cqw)'},{opacity:1,letterSpacing:'.3em',transform:'none'}],24.0,.8);
