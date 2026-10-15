@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Белый Лотос × Halloween — Reel v11.0.9</title>
+<title>Белый Лотос × Halloween — Reel v11.0.10</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
@@ -39,7 +39,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .pc{position:absolute;left:0;width:100cqw;top:36cqw;display:flex;flex-direction:column;align-items:center;z-index:2;opacity:0}
 .pi{position:relative;height:44cqw;width:100cqw;display:grid;place-items:center;margin-bottom:3cqw}
 .pi img{position:relative;display:block;filter:drop-shadow(0 0 3cqw rgba(255,140,40,.6))}
-.pg{position:absolute;width:62cqw;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.38),rgba(255,138,31,.12) 48%,transparent 70%)}
+.pg{position:absolute;width:62cqw;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.2),rgba(255,138,31,.07) 48%,transparent 70%)}
 .pc .fit+.fit{margin-top:1.5cqw}
 .pbar{position:absolute;left:31cqw;width:38cqw;top:109.5cqw;display:flex;justify-content:space-between;align-items:flex-end;z-index:2;opacity:0}
 /* дата */
@@ -59,7 +59,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .orn i:first-child{background:linear-gradient(90deg,transparent,#ff9a3d);transform-origin:right}.orn i:last-child{background:linear-gradient(90deg,#ff9a3d,transparent);transform-origin:left}.orn svg{width:2.4cqw;height:2.4cqw;flex:none}
 .lkx{position:relative;margin-top:3cqw;display:flex;flex-direction:column;align-items:center}
 .gd{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;padding:0 .12em .08em;background:linear-gradient(100deg,#ffb347 0%,#fff2c9 22%,#ffb347 40%,#ff7a1a 70%,#ffb347 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 3cqw rgba(255,122,26,.5))}
-.ulx{display:block;width:70%;height:.45cqw;margin-top:.8cqw;background:linear-gradient(90deg,transparent,#ffb347 20%,#ffb347 80%,transparent);transform-origin:center;box-shadow:0 0 2cqw rgba(255,150,40,.8)}
+.ulx{display:block;width:70%;height:.45cqw;margin-top:.8cqw;background:linear-gradient(90deg,transparent,#ffb347 20%,#ffb347 80%,transparent);transform-origin:center;box-shadow:0 0 1.2cqw rgba(255,150,40,.6)}
 .cpt{margin-top:3.2cqw;color:#e9deff;letter-spacing:.3em;text-indent:.3em}
 .upr{position:relative;width:9cqw;height:9cqw;margin-top:4.5cqw;display:grid;place-items:center}
 .upr svg{position:relative;width:5.6cqw;height:5.6cqw;overflow:visible}
@@ -118,14 +118,14 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
   <div class="fit disp gr gw" id="d1" data-w="70" data-m="60" style="line-height:.9;margin-top:1cqw">31</div>
   <div class="fit disp wt" id="d2" data-w="70" data-m="16" style="margin-top:1cqw">ОКТЯБРЯ</div>
   <div class="meta" id="d3"><span class="tm gr" id="d3a">19:00</span><i class="vr" id="d3b"></i><span class="fit lab city" id="d4" data-w="38" data-m="4.4">НОВОСИБИРСК</span></div>
-  <div class="nb" id="d5"><i></i><span class="lab">БЕЗ АЛКОГОЛЯ<br>И НАРКОТИКОВ</span><i></i></div>
+  <div class="nb" id="d5"><i></i><span class="lab">БЕЗ АЛКОГОЛЯ<br>И ДОПИНГОВ</span><i></i></div>
  </div></div>
 
  <div class="sc" id="s5">
   <div class="logo" id="lg2" style="left:32cqw;top:24cqw;width:36cqw"><div class="glow" id="gl2"></div><div id="lw2" style="width:100%"><img class="L" alt=""></div></div>
   <div class="blk" style="top:54cqw">
    <div class="fit disp wt" id="e0" data-w="88" data-m="13">ТВОЁ МЕСТО.</div>
-   <div class="fit disp gr gw" id="e0b" data-w="88" data-m="13" style="margin-top:.5cqw">ТВОИ ЛЮДИ.</div>
+   <div class="fit disp gr" id="e0b" data-w="88" data-m="13" style="margin-top:.5cqw;filter:drop-shadow(0 0 1.2cqw rgba(255,122,26,.3))">ТВОИ ЛЮДИ.</div>
    <div class="orn" id="orn"><i></i><svg viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="#ffb347"/></svg><i></i></div>
    <div class="lkx" id="lkx"><div class="fit gd" id="k1" data-w="64" data-m="17">ссылка</div><i class="ulx" id="ulx"></i></div>
    <div class="fit lab cpt" id="cp" data-w="68" data-m="5.2">в шапке профиля</div>
@@ -157,6 +157,7 @@ function A(el,kf,s,d,o){const a=el.animate(kf,Object.assign({delay:s*1000,durati
 function mk(cls,css,p,html){const e=document.createElement('div');e.className=cls||'';if(css)e.style.cssText=css;if(html)e.innerHTML=html;(p||cam).appendChild(e);return e}
 function dec(k,css,o){o=o||{};const p=o.p?(typeof o.p==='string'?$(o.p):o.p):cam;const e=mk('d '+(o.c||''),css,p);const i=new Image();i.src=ASSETS[k];i.alt='';if(o.tilt)i.style.rotate=o.tilt+'deg';e.appendChild(i);return e}
 const G='drop-shadow(0 0 5cqw rgba(255,150,40,.75))',GP='drop-shadow(0 0 7cqw rgba(255,130,20,.55))';
+const GC='drop-shadow(0 0 1.6cqw rgba(255,150,40,.4))',GP2='drop-shadow(0 0 3.5cqw rgba(255,130,20,.3))'; // v11.0.10: тише свечи и тыквы, главный свет сцены — на тексте/лого/иконке
 function rise(e,s,ty,o){o=o||{};A(e,[{opacity:0,translate:(o.tx||0)+'cqw '+ty+'cqw',scale:o.sc||1,rotate:(o.r||0)+'deg'},{opacity:1,translate:'0 0',scale:1,rotate:'0deg'}],s,o.d||.8,{easing:o.ez||BO})}
 function sink(e,s,d,ty){A(e,[{opacity:1,translate:'0 0'},{opacity:0,translate:'0 '+(ty||40)+'cqw'}],s,d||.5,{fill:'forwards',easing:IN})}
 function drift(e,s,n,dy,d){A(e,[{translate:'0 0',rotate:'0deg'},{translate:'0 '+dy+'cqw',rotate:(dy>0?2:-2)+'deg'}],s,d||1.2,{direction:'alternate',iterations:n,fill:'none',easing:'ease-in-out'})}
@@ -175,17 +176,22 @@ function flame(e,s,per,base,amp){per=per||3.2;base=base||G;amp=amp||1;const kf=[
  for(let i=0;i<=N;i++){const a=i/N*2*Math.PI,n=.55*Math.sin(3*a)+.3*Math.sin(7*a+1.7)+.15*Math.sin(17*a+.4);
   kf.push({filter:base+' brightness('+(1.08+.14*amp*n).toFixed(3)+')'})}
  A(e,kf,s,per,{iterations:Infinity,easing:'linear',fill:'none'})}
-function bat(p,s,y,w,d,dir,t,dy){const e=dec(t,'left:0;top:'+y+'cqw;width:'+w+'cqw;opacity:0',{c:'sil',p});const i=e.firstChild,x0=dir>0?-(w+6):106,x1=dir>0?106:-(w+6);
- A(e,[{opacity:0,translate:x0+'cqw 0',offset:0},{opacity:1,translate:x0+'cqw 0',offset:.001},{opacity:1,offset:.97},{opacity:0,translate:x1+'cqw '+(dy||R()*8)+'cqw',offset:1}],s,d,{easing:'linear'});
- A(i,[{transform:'scaleY(1) scaleX('+dir+')'},{transform:'scaleY(.4) scaleX('+dir+')'}],s,.13,{direction:'alternate',iterations:Math.ceil(d/.13),easing:'ease-in-out',fill:'none'})}
+function bat(p,s,y,w,d,dir,t,dy){ // v11.0.10: полёт по дуге, глубина (ближе/дальше), наклон по траектории, разный взмах + планирование
+ dy=dy==null?R()*6:dy;const e=dec(t,'left:0;top:'+y+'cqw;width:'+w+'cqw;opacity:0',{c:'sil',p}),i=e.firstChild;
+ const x0=dir>0?-(w+6):106,X=(dir>0?106:-(w+6))-x0,amp=(rnd()<.5?-1:1)*(4+rnd()*7),a=.7+rnd()*.15,b=1.05+rnd()*.25,near=rnd()<.5,N=14,kf=[];
+ for(let k=0;k<=N;k++){const u=k/N,yy=dy*u+amp*Math.sin(Math.PI*u),sl=(dy+amp*Math.PI*Math.cos(Math.PI*u))/Math.abs(X),ang=Math.max(-22,Math.min(22,dir*Math.atan(sl)*180/Math.PI*2.5));
+  kf.push({offset:u,opacity:(k===0||k===N)?0:1,translate:(x0+X*u).toFixed(1)+'cqw '+yy.toFixed(1)+'cqw',rotate:ang.toFixed(1)+'deg',scale:(near?a+(b-a)*u:b+(a-b)*u).toFixed(3)})}
+ A(e,kf,s,d,{easing:'linear'});
+ const fp=.1+rnd()*.07,fk=.3+rnd()*.25,fd=d*(.5+rnd()*.3),off=rnd()*.08;
+ A(i,[{transform:'scaleY(1) scaleX('+dir+')'},{transform:'scaleY('+fk.toFixed(2)+') scaleX('+dir+')'}],s+off,fp,{direction:'alternate',iterations:Math.max(2,Math.round(fd/fp)),easing:'ease-in-out',fill:'none'})}
 
 /* ===== АТМОСФЕРА ===== */
 for(let i=0;i<34;i++){const z=.25+rnd()*.5,e=mk('st','left:'+rnd()*100+'%;top:'+rnd()*62+'%;width:'+z+'cqw;height:'+z+'cqw;opacity:.5');A(e,[{opacity:.15},{opacity:.95}],rnd()*2,1+rnd()*2,{direction:'alternate',iterations:Infinity,fill:'none',easing:'ease-in-out'})}
 A(cam,[{scale:1},{scale:1.07,offset:.84},{scale:1}],0,D,{easing:'linear'});
 // луна: отступает вверх-вправо → всплывает за деревьями в сцене даты → уходит вверх
 const moon=dec('moon','left:0;top:0;width:70cqw');
-const MP=[[0,82,29,1,1],[4.2,82,24,1,1],[5.0,86,17,.72,.8],[7.8,86,17,.72,.8],[8.9,89,13,.55,.5],[16.3,89,13,.55,.5],[16.36,50,104,1.25,.5],[17.1,50,57,1.25,.5],[21.1,50,57,1.25,.5],[22.0,50,-34,1.25,.5],[D,50,-34,1.25,.5]];
-A(moon,MP.map(([t,x,y,s,b])=>({offset:t/D,translate:(x-35)+'cqw '+(y-34)+'cqw',scale:s,filter:'drop-shadow(0 0 8cqw rgba(255,150,60,.55)) brightness('+b+')',easing:MV})),0,D,{easing:'linear'});
+const MP=[[0,82,29,1,1],[4.2,82,24,1,1],[5.0,86,17,.72,.8],[7.8,86,17,.72,.8],[8.9,89,13,.55,.5],[15.7,89,13,.55,.5],[16.15,89,13,.55,.5,0],[16.36,50,104,1.25,.5,0],[17.1,50,57,1.25,.5],[21.1,50,57,1.25,.5],[22.0,50,-34,1.25,.5],[D,50,-34,1.25,.5]];
+A(moon,MP.map(([t,x,y,s,b,o=1])=>({offset:t/D,opacity:o,translate:(x-35)+'cqw '+(y-34)+'cqw',scale:s,filter:'drop-shadow(0 0 6cqw rgba(255,150,60,.4)) brightness('+b+')',easing:MV})),0,D,{easing:'linear'});
 A(moon,[{rotate:'0deg'},{rotate:'8deg'}],0,D,{easing:'linear'});
 const tr=dec('trees','left:-10cqw;bottom:-14cqw;width:120cqw;opacity:.55',{c:'sil'});A(tr,[{translate:'-3cqw 0'},{translate:'5cqw 0',offset:.5},{translate:'-3cqw 0'}],0,D,{easing:'ease-in-out'});
 const sm1=dec('smoke','left:-30cqw;bottom:-14cqw;width:150cqw;opacity:.5;z-index:2',{c:'scr'});A(sm1,[{translate:'-6cqw 0'},{translate:'8cqw 0',offset:.5},{translate:'-6cqw 0'}],0,D,{easing:'ease-in-out'});
@@ -195,10 +201,10 @@ const web=dec('web','left:-3cqw;top:-2cqw;width:56cqw;z-index:2;transform-origin
 
 /* ===== 1 · ХУК 0–4.4 ===== */
 scene('s1',0,3.8,{first:true});
-const pk=dec('pumpB','left:20cqw;bottom:-8cqw;width:60cqw;filter:'+GP,{p:'s1'});flame(pk,0,3.2,GP);sink(pk,3.8,.6,50);
+const pk=dec('pumpB','left:20cqw;bottom:-8cqw;width:60cqw;filter:'+GP2,{p:'s1'});flame(pk,0,3.2,GP2);sink(pk,3.8,.6,50);
 A(pk,[{scale:1},{scale:1.04}],0,1.0,{direction:'alternate',iterations:4,fill:'none',easing:'ease-in-out'});
-const cA=dec('candleA','left:2cqw;bottom:9cqw;width:17cqw;filter:'+G,{p:'s1'}),cB=dec('candleB','right:2cqw;bottom:9cqw;width:17cqw;filter:'+G,{p:'s1'});
-flame(cA,0,3.2);flame(cB,.4,2.8);sink(cA,3.8,.6,50);sink(cB,3.85,.6,50);
+const cA=dec('candleA','left:2cqw;bottom:9cqw;width:17cqw;filter:'+GC,{p:'s1'}),cB=dec('candleB','right:2cqw;bottom:9cqw;width:17cqw;filter:'+GC,{p:'s1'});
+flame(cA,0,3.2,GC);flame(cB,.4,2.8,GC);sink(cA,3.8,.6,50);sink(cB,3.85,.6,50);
 const sp1=dec('spider','left:63cqw;top:-2cqw;width:14cqw;z-index:2',{p:'s1',c:'sil'});
 mk('','position:absolute;left:50%;bottom:99%;width:.35cqw;height:70cqw;background:#000;translate:-50% 0;filter:drop-shadow(0 0 .5cqw rgba(168,85,247,.9))',sp1);
 A(sp1,[{translate:'0 -50cqw'},{translate:'0 34cqw'}],.4,.9,{easing:BO});
@@ -212,7 +218,7 @@ bat('s1',1.0,18,13,3,1,'bat1');bat('s1',2.4,36,14,2.6,-1,'bat2');
 
 
 /* ===== 2 · ЛОГО 4.45–8.15 ===== */
-scene('s2',4.0,7.9,{fi:.25,fo:.3});
+scene('s2',4.0,7.7,{fi:.25,fo:.3});
 A($('lg'),[{opacity:0,transform:'scale(.55)',filter:'blur(1.6cqw)'},{opacity:1,transform:'none',filter:'blur(0)'}],4.1,1.1,{easing:EZ});
 A($('gl'),[{opacity:0},{opacity:1}],4.2,.9,{easing:'linear'});
 A($('rays'),[{opacity:0,rotate:'0deg'},{opacity:.9,offset:.2},{opacity:.9,offset:.8},{opacity:0,rotate:'30deg'}],4.6,2.8,{easing:'linear'});
@@ -229,7 +235,13 @@ A($('gl'),[{scale:1},{scale:4}],7.5,.55,{fill:'forwards',easing:IN});
 
 
 /* ===== 3 · ПРОГРАММА 8.1–15.25: по одному пункту ===== */
-scene('s3',7.85,15.75,{fi:.3,fo:.25});
+scene('s3',7.55,15.75,{fi:.05,fo:.25});
+// v11.0.10 · Т2-1: диафрагма из центра лотоса — программа открывается расширяющимся кругом, по кромке бежит тонкое тёплое кольцо
+$('s3').prepend(mk('','position:absolute;inset:0;background:radial-gradient(85% 55% at 50% 58%,rgba(150,60,170,.28),rgba(255,122,26,.07) 55%,transparent 75%)',$('s3')));
+const IRZ='cubic-bezier(.55,0,.2,1)';
+A($('s3'),[{clipPath:'circle(0cqw at 50cqw 58cqw)'},{clipPath:'circle(135cqw at 50cqw 58cqw)'}],7.55,.65,{easing:IRZ});
+const iris=mk('','position:absolute;left:50cqw;top:58cqw;width:0;height:0;border-radius:50%;box-sizing:border-box;border:.7cqw solid rgba(255,206,140,.9);box-shadow:0 0 2cqw rgba(255,150,40,.6),inset 0 0 2cqw rgba(255,150,40,.3);z-index:5;pointer-events:none;opacity:0');
+A(iris,[{opacity:0,width:'0cqw',height:'0cqw',marginLeft:'0cqw',marginTop:'0cqw'},{opacity:1,offset:.1},{opacity:1,offset:.75},{opacity:0,width:'270cqw',height:'270cqw',marginLeft:'-135cqw',marginTop:'-135cqw'}],7.55,.65,{easing:IRZ});
 pop($('c0'),8.0,.5);A($('pb'),[{opacity:0},{opacity:1}],7.9,.25,{easing:'linear'});
 const PS=[8.0,10.0,12.0,14.0],PE=16.0;
 function spark(p,x,y,w,t,d){const e=mk('sk','left:'+x+'cqw;top:'+y+'cqw;width:'+w+'cqw',p,'<svg viewBox="0 0 24 24"><path fill="#fff6dd" d="M12 0L14.2 9.8 24 12 14.2 14.2 12 24 9.8 14.2 0 12 9.8 9.8Z"/></svg>');
@@ -244,7 +256,7 @@ function spark(p,x,y,w,t,d){const e=mk('sk','left:'+x+'cqw;top:'+y+'cqw;width:'+
  pop(c.children[1],s+.2,.5,{transform:'translateY(4cqw)'});pop(c.children[2],s+.45,.5);
  // вместо полоски прогресса: свеча на каждый пункт, зажигается на его старте и горит до конца сцены
  {const cn=mk('','position:relative;width:2.2cqw;height:5.5cqw;border-radius:.5cqw .5cqw .3cqw .3cqw;background:linear-gradient(#f3e6d0,#b9a78e)',$('pb'));
-  const fl=mk('','position:absolute;left:50%;bottom:100%;width:2.2cqw;height:3.6cqw;margin-left:-1.1cqw;border-radius:50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6d5,#ffb347 45%,rgba(255,122,26,0) 72%);transform-origin:50% 100%;opacity:0;filter:drop-shadow(0 0 1.6cqw rgba(255,150,40,.9))',cn);
+  const fl=mk('','position:absolute;left:50%;bottom:100%;width:2.2cqw;height:3.6cqw;margin-left:-1.1cqw;border-radius:50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6d5,#ffb347 45%,rgba(255,122,26,0) 72%);transform-origin:50% 100%;opacity:0;filter:drop-shadow(0 0 .9cqw rgba(255,150,40,.7))',cn);
   A(fl,[{opacity:0,scale:'.2'},{opacity:1,scale:'1.25 1.45',offset:.35},{opacity:1,scale:'1'}],s+.1,.45,{easing:'ease-out'});
   A(fl,[{rotate:'-4deg',scale:'1 1'},{rotate:'3deg',scale:'.94 1.07'}],s+.55,.5,{direction:'alternate',iterations:Math.ceil((15.75-s-.55)/.5),fill:'none',easing:'ease-in-out'})}
  if(i===0){ // музыка: пластинка крутится, ноты улетают вверх
@@ -283,8 +295,8 @@ A($('d4'),[{opacity:0,transform:'translateX(4cqw)'},{opacity:1,transform:'none'}
 const nbi=$('d5').querySelectorAll('i'),nbs=$('d5').querySelector('span');
 A(nbi[0],[{transform:'scaleX(0)'},{transform:'none'}],19.0,.6,{easing:SL});A(nbi[1],[{transform:'scaleX(0)'},{transform:'none'}],19.0,.6,{easing:SL});
 A(nbs,[{opacity:0},{opacity:1}],19.15,.5,{easing:'linear'});
-const dpC=dec('pumpC','left:-9cqw;bottom:-8cqw;width:36cqw;filter:'+GP,{p:'s4',tilt:-9}),dpB=dec('pumpB','right:-9cqw;bottom:-7cqw;width:34cqw;filter:'+GP,{p:'s4',tilt:8});
-rise(dpC,16.85,35,{r:-25});rise(dpB,17.0,35,{r:25});flame(dpC,16.85,3.2,GP);flame(dpB,17.05,2.8,GP);
+const dpC=dec('pumpC','left:-9cqw;bottom:-8cqw;width:36cqw;filter:'+GP2,{p:'s4',tilt:-9}),dpB=dec('pumpB','right:-9cqw;bottom:-7cqw;width:34cqw;filter:'+GP2,{p:'s4',tilt:8});
+rise(dpC,16.85,35,{r:-25});rise(dpB,17.0,35,{r:25});flame(dpC,16.85,3.2,GP2);flame(dpB,17.05,2.8,GP2);
 bat('s4',17.3,40,11,2.6,-1,'bat1');bat('s4',18.9,52,10,2.4,1,'bat2');
 
 /* ===== переход · стая 20.8–21.8 ===== */
@@ -308,8 +320,8 @@ A($('cp'),[{opacity:0,letterSpacing:'.6em',transform:'translateY(1.5cqw)'},{opac
 A($('upr'),[{opacity:0},{opacity:1}],24.5,.4,{easing:'linear'});
 A($('upr').querySelector('svg'),[{translate:'0 .7cqw'},{translate:'0 -.9cqw'}],24.5,.5,{direction:'alternate',iterations:4,fill:'none',easing:'ease-in-out'});
 A($('pg2'),[{transform:'scale(1)',opacity:.8},{transform:'scale(1.9)',opacity:0}],24.5,1.0,{iterations:2,fill:'none',easing:'ease-out'});
-const fA=dec('pumpA','left:-8cqw;bottom:-8cqw;width:36cqw;filter:'+GP,{p:'s5',tilt:-8}),fS=dec('pumpS','right:-4cqw;bottom:-6cqw;width:28cqw;filter:'+GP,{p:'s5',tilt:7});
-rise(fA,21.5,35,{r:-25});rise(fS,21.65,35,{r:25});flame(fA,21.5,3.2,GP);flame(fS,21.7,2.8,GP);
+const fA=dec('pumpA','left:-8cqw;bottom:-8cqw;width:36cqw;filter:'+GP2,{p:'s5',tilt:-8}),fS=dec('pumpS','right:-4cqw;bottom:-6cqw;width:28cqw;filter:'+GP2,{p:'s5',tilt:7});
+rise(fA,21.5,35,{r:-25});rise(fS,21.65,35,{r:25});flame(fA,21.5,3.2,GP2);flame(fS,21.7,2.8,GP2);
 
 /* ===== ЗЕРНО, ПЕТЛЯ ===== */
 const gr=$('gr');gr.style.backgroundImage='url("data:image/svg+xml,'+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>")+'")';
