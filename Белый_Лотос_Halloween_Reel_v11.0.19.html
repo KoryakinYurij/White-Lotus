@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
+:root{--cap-ls:.14em}
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--lav:#d6c6ff}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,7 +26,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .disp{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 .it{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;color:var(--lav)}
 .lab{font-family:Manrope,system-ui,sans-serif;font-weight:800}
-.lab{letter-spacing:.28em;text-transform:uppercase}
+.lab{letter-spacing:var(--cap-ls);text-indent:var(--cap-ls);text-transform:uppercase}
 .fit{display:block;width:max-content;white-space:nowrap;line-height:1.05;text-align:center}
 .wt{color:#fff;text-shadow:0 .5cqw 2.4cqw rgba(8,3,20,.65)}
 .gr,.gr span,.gs span{background:linear-gradient(180deg,#fff0c4 0%,#ffb347 40%,#ff7a1a 72%,#b83e08 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
@@ -51,7 +52,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .nb i{flex:1;height:.3cqw;display:block}
 .nb i:first-child{background:linear-gradient(90deg,transparent,#ff9a3d);transform-origin:right}
 .nb i:last-child{background:linear-gradient(90deg,#ff9a3d,transparent);transform-origin:left}
-.nb span{text-align:center;line-height:1.55;font-size:4.4cqw;letter-spacing:.14em;color:#ffc98a}
+.nb span{text-align:center;line-height:1.55;font-size:4.4cqw;letter-spacing:var(--cap-ls);text-indent:0;color:#ffc98a}
 /* финал */
 .gs span{position:relative}
 .msk{overflow:hidden;padding:.08em .03em .12em}
@@ -60,7 +61,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .lkx{position:relative;margin-top:3cqw;display:flex;flex-direction:column;align-items:center}
 .gd{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;padding:0 .12em .08em;background:linear-gradient(100deg,#ffb347 0%,#fff2c9 22%,#ffb347 40%,#ff7a1a 70%,#ffb347 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 3cqw rgba(255,122,26,.5))}
 .ulx{display:block;width:70%;height:.45cqw;margin-top:.8cqw;background:linear-gradient(90deg,transparent,#ffb347 20%,#ffb347 80%,transparent);transform-origin:center;box-shadow:0 0 1.2cqw rgba(255,150,40,.6)}
-.cpt{margin-top:3.2cqw;color:#e9deff;letter-spacing:.3em;text-indent:.3em}
+.cpt{margin-top:3.2cqw;color:#e9deff}
 .upr{position:relative;width:9cqw;height:9cqw;margin-top:4.5cqw;display:grid;place-items:center}
 .upr svg{position:relative;width:5.6cqw;height:5.6cqw;overflow:visible}
 .pg2{position:absolute;inset:0;border-radius:50%;border:.35cqw solid rgba(255,179,71,.7)}
@@ -117,15 +118,15 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
   <div class="fit it" id="d0" data-w="34" data-m="7.5">один вечер</div>
   <div class="fit disp gr gw" id="d1" data-w="70" data-m="60" style="line-height:.9;margin-top:1cqw">31</div>
   <div class="fit disp wt" id="d2" data-w="70" data-m="16" style="margin-top:1cqw">ОКТЯБРЯ</div>
-  <div class="meta" id="d3"><span class="tm gr" id="d3a">19:00</span><i class="vr" id="d3b"></i><span class="fit lab city" id="d4" data-w="38" data-m="4.4">НОВОСИБИРСК</span></div>
+  <div class="meta" id="d3"><span class="tm gr" id="d3a">19:00</span><i class="vr" id="d3b"></i><span class="fit lab city" id="d4" data-w="41" data-m="5">НОВОСИБИРСК</span></div>
   <div class="nb" id="d5"><i></i><span class="lab">БЕЗ АЛКОГОЛЯ<br>И ДОПИНГОВ</span><i></i></div>
  </div></div>
 
  <div class="sc" id="s5">
   <div class="logo" id="lg2" style="left:32cqw;top:24cqw;width:36cqw"><div class="glow" id="gl2"></div><div id="lw2" style="width:100%"><img class="L" alt=""></div></div>
   <div class="blk" style="top:48cqw">
-   <div class="fit disp wt" id="e0" data-w="88" data-m="13">ТВОЁ МЕСТО.</div>
-   <div class="fit disp gr" id="e0b" data-w="88" data-m="13" style="margin-top:.5cqw;filter:drop-shadow(0 0 1.2cqw rgba(255,122,26,.3))">ТВОИ ЛЮДИ.</div>
+   <div class="fit disp wt" id="e0" data-g="sl" data-w="88" data-m="13">ТВОЁ МЕСТО.</div>
+   <div class="fit disp gr" id="e0b" data-g="sl" data-w="88" data-m="13" style="margin-top:.5cqw;filter:drop-shadow(0 0 1.2cqw rgba(255,122,26,.3))">ТВОИ ЛЮДИ.</div>
    <div class="orn" id="orn"><i></i><svg viewBox="0 0 10 10"><path d="M5 0L10 5L5 10L0 5Z" fill="#ffb347"/></svg><i></i></div>
    <div class="lkx" id="lkx"><div class="fit gd" id="k1" data-w="64" data-m="17">ссылка</div><i class="ulx" id="ulx"></i></div>
    <div class="fit lab cpt" id="cp" data-w="68" data-m="5.2">в шапке профиля</div>
@@ -212,7 +213,7 @@ function bat(p,s,y,w,d,dir,t,dy){ // v11.0.10: полёт по дуге, глу�
  A(i,[{transform:'scaleY(1) scaleX('+dir+')'},{transform:'scaleY('+fk.toFixed(2)+') scaleX('+dir+')'}],s+off,fp,{direction:'alternate',iterations:Math.max(2,Math.round(fd/fp)),easing:'ease-in-out',fill:'none'})}
 
 /* ===== АТМОСФЕРА ===== */
-for(let i=0;i<34;i++){const z=.25+rnd()*.5,e=mk('st','left:'+rnd()*100+'%;top:'+rnd()*62+'%;width:'+z+'cqw;height:'+z+'cqw;opacity:.5');A(e,[{opacity:.15},{opacity:.95}],rnd()*2,1+rnd()*2,{direction:'alternate',iterations:Infinity,fill:'none',easing:'ease-in-out'})}
+for(let i=0;i<34;i++){const z=.25+rnd()*.5,e=mk('st','left:'+rnd()*100+'%;top:'+rnd()*62+'%;width:'+z+'cqw;height:'+z+'cqw;opacity:.5'),dl=rnd()*2,du=1+rnd()*2;A(e,[{opacity:.15},{opacity:.95}],dl,du,{direction:'alternate',iterations:RM?Infinity:Math.ceil((D-dl)/du),fill:'none',easing:'ease-in-out'})}
 A(cam,[{scale:1},{scale:1.07,offset:.84},{scale:1}],0,D,{easing:'linear'});
 // луна: отступает вверх-вправо → всплывает за деревьями в сцене даты → уходит вверх
 const moon=dec('moon','left:0;top:0;width:70cqw');
@@ -223,7 +224,7 @@ A(moon,[{rotate:'0deg'},{rotate:'8deg'}],0,D,{easing:'linear'});
 const tr=dec('trees','left:-10cqw;bottom:-14cqw;width:120cqw;opacity:.55',{c:'sil'});A(tr,[{translate:'-3cqw 0'},{translate:'5cqw 0',offset:.5},{translate:'-3cqw 0'}],0,D,{easing:'ease-in-out'});
 const sm1=dec('smoke','left:-30cqw;bottom:-14cqw;width:150cqw;opacity:.5;z-index:2',{c:'scr'});A(sm1,[{translate:'-6cqw 0'},{translate:'8cqw 0',offset:.5},{translate:'-6cqw 0'}],0,D,{easing:'ease-in-out'});
 const cols=['#ff9a3d','#ff7a1a','#c4a3ff','#a855f7','#fff'];
-for(let i=0;i<26;i++){const z=.7+rnd()*1.6,c=cols[i%5],e=mk('sp','left:'+rnd()*100+'%;width:'+z+'cqw;height:'+z+'cqw;background:'+c+';box-shadow:0 0 '+z*2+'cqw '+c);A(e,[{translate:'0 0',opacity:0},{opacity:.9,offset:.2},{translate:R()*8+'cqw -'+(150+rnd()*60)+'cqw',opacity:0}],rnd()*4,4+rnd()*5,{iterations:Infinity,easing:'linear',fill:'none'})}
+for(let i=0;i<26;i++){const z=.7+rnd()*1.6,c=cols[i%5],e=mk('sp','left:'+rnd()*100+'%;width:'+z+'cqw;height:'+z+'cqw;background:'+c+';box-shadow:0 0 '+z*2+'cqw '+c);kf=[{translate:'0 0',opacity:0},{opacity:.9,offset:.2},{translate:R()*8+'cqw -'+(150+rnd()*60)+'cqw',opacity:0}],dl=rnd()*4,du=4+rnd()*5;A(e,kf,dl,du,{iterations:RM?Infinity:Math.ceil((D-dl)/du),easing:'linear',fill:'none'})}
 const web=dec('web','left:-3cqw;top:-2cqw;width:56cqw;z-index:2;transform-origin:0 0',{c:'web'});A(web,[{opacity:0,scale:.3},{opacity:1,scale:1}],.1,.8);A(web,[{opacity:1},{opacity:0}],3.6,.5,{fill:'forwards',easing:'linear'});
 
 /* ===== 1 · ХУК 0–4.4 ===== */
