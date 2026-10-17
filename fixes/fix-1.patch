@@ -1,0 +1,23 @@
+diff --git "a/\320\221\320\265\320\273\321\213\320\271_\320\233\320\276\321\202\320\276\321\201_Halloween_Reel_v11.0.19.html" "b/\320\221\320\265\320\273\321\213\320\271_\320\233\320\276\321\202\320\276\321\201_Halloween_Reel_v11.0.19.html"
+index 3b1e07c..c6b557b 100644
+--- "a/\320\221\320\265\320\273\321\213\320\271_\320\233\320\276\321\202\320\276\321\201_Halloween_Reel_v11.0.19.html"
++++ "b/\320\221\320\265\320\273\321\213\320\271_\320\233\320\276\321\202\320\276\321\201_Halloween_Reel_v11.0.19.html"
+@@ -13 +13 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
+-.stage{position:relative;overflow:hidden;container-type:inline-size;width:min(100vw,calc((100vh - 84px)*9/16));width:min(100vw,calc((100dvh - 84px)*9/16));aspect-ratio:9/16;border-radius:14px;background:radial-gradient(110% 70% at 70% 8%,#3b1580 0%,#160a33 50%,#06030d 100%)}
++.stage{position:relative;overflow:hidden;flex:none;container-type:inline-size;width:min(100vw,calc((100vh - 84px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))*9/16));width:min(100vw,calc((100dvh - 84px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))*9/16));aspect-ratio:9/16;border-radius:14px;background:radial-gradient(110% 70% at 70% 8%,#3b1580 0%,#160a33 50%,#06030d 100%)}
+@@ -126 +126 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
+-  <div class="blk" style="top:54cqw">
++  <div class="blk" style="top:48cqw">
+@@ -149,0 +150,3 @@ const D=24; // v11.0.18: 12 тактов = конец секции трека 16
++// v11.0.20: reduce-motion — анимации становятся мгновенными и конечными, но НЕ выбрасываются:
++// возврат A() использует mA (:388) для morph.anims, поэтому null возвращать нельзя.
++const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+@@ -156 +159 @@ const all=[];
+-function A(el,kf,s,d,o){const a=el.animate(kf,Object.assign({delay:s*1000,duration:d*1000,fill:'both',easing:EZ},o||{}));a.pause();all.push(a);return a}
++function A(el,kf,s,d,o){if(RM){o=Object.assign({},o);if(o.iterations===Infinity)o.iterations=1;d=0}const a=el.animate(kf,Object.assign({delay:s*1000,duration:d*1000,fill:'both',easing:EZ},o||{}));a.pause();all.push(a);return a}
+@@ -189 +192 @@ const moon=dec('moon','left:0;top:0;width:70cqw');
+-const MP=[[0,82,29,1,1],[4.2,82,24,1,1],[5.0,86,17,.72,.8],[7.8,86,17,.72,.8],[8.9,89,13,.55,.5],[15.7,89,13,.55,.5],[16.0,89,13,.55,.5],[17.1,50,57,1.25,.5], // v11.0.11 · Т3-5: луна плавно спускается под зумом в тыкву, без телепорта
++const MP=[[0,82,29,1,.55],[4.2,82,24,1,.55],[5.0,86,17,.72,.8],[7.8,86,17,.72,.8],[8.9,89,13,.55,.5],[15.7,89,13,.55,.5],[16.0,89,13,.55,.5],[17.1,50,57,1.25,.5], // v11.0.11 · Т3-5: луна плавно спускается под зумом в тыкву, без телепорта
+@@ -298 +301 @@ A(zp,[{opacity:1},{opacity:0}],16.5,.12,{fill:'forwards',easing:'linear'});
+-flash($('fl2'),16.25,.55,1); // тёплая заливка при входе в тыкву — вернул, так переход читается лучше
++flash($('fl2'),16.0,.5,.8); // тёплая заливка при входе в тыкву — вернул, так переход читается лучше
