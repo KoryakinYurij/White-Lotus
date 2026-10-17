@@ -156,7 +156,34 @@ document.querySelectorAll('img.L').forEach(i=>i.src=LOGO);
 document.querySelectorAll('img[data-k]').forEach(i=>i.src=ASSETS[i.dataset.k]);
 const EZ='cubic-bezier(.2,.8,.2,1)',BO='cubic-bezier(.34,1.56,.64,1)',SL='cubic-bezier(.8,0,.2,1)',IN='cubic-bezier(.6,0,.9,.4)',MV='cubic-bezier(.5,0,.2,1)';
 const all=[];
-function A(el,kf,s,d,o){if(RM){o=Object.assign({},o);if(o.iterations===Infinity)o.iterations=1;d=0}const a=el.animate(kf,Object.assign({delay:s*1000,duration:d*1000,fill:'both',easing:EZ},o||{}));a.pause();all.push(a);return a}
+// ---- окно по времени: currentTime пишется только тем, чей интервал покрывает t ----
+// У конечной анимации вне окна достаточно удерживать каноническое значение из той же
+// «зоны»: 0 — пока не началась (0 < delay всегда, т.к. t>=0), endTime — когда кончилась.
+// ВАЖНО: каноническое значение выбирается по ЗОНЕ, а не по точному числу —
+// от зоны зависит только fill ('both'/'forwards'/'backwards'/'none'), поэтому перемотка
+// туда-сюда воспроизводится точно. Если писать delay, то у fill:'forwards'/'none'
+// анимация окажется внутри активной фазы и покажет первый кадр вместо «ничего».
+// Вечные (iterations:Infinity) крутятся всегда — для них свой массив.
+let _v=0,_win=null;
+function _bump(){_v++}
+function _seek(ms){
+  if(!_win||_win.v!==_v){
+    const fin=[],ever=[];
+    for(const a of all){
+      a.__w=NaN;
+      const c=a.effect.getComputedTiming(),e=c.endTime;
+      if(isFinite(e))fin.push({a:a,s:c.delay,e:e});else ever.push(a);
+    }
+    _win={v:_v,fin:fin,ever:ever};
+  }
+  const f=_win.fin,ev=_win.ever;
+  for(let i=0;i<ev.length;i++)ev[i].currentTime=ms;
+  for(let i=0;i<f.length;i++){
+    const it=f[i],a=it.a,v=ms>it.e?it.e:ms<it.s?0:ms;
+    if(a.__w!==v){a.currentTime=v;a.__w=v}
+  }
+}
+function A(el,kf,s,d,o){if(RM){o=Object.assign({},o);if(o.iterations===Infinity)o.iterations=1;d=0}const a=el.animate(kf,Object.assign({delay:s*1000,duration:d*1000,fill:'both',easing:EZ},o||{}));a.pause();all.push(a);_bump();return a}
 function mk(cls,css,p,html){const e=document.createElement('div');e.className=cls||'';if(css)e.style.cssText=css;if(html)e.innerHTML=html;(p||cam).appendChild(e);return e}
 function dec(k,css,o){o=o||{};const p=o.p?(typeof o.p==='string'?$(o.p):o.p):cam;const e=mk('d '+(o.c||''),css,p);const i=new Image();i.src=ASSETS[k];i.alt='';if(o.tilt)i.style.rotate=o.tilt+'deg';e.appendChild(i);return e}
 const G='drop-shadow(0 0 5cqw rgba(255,150,40,.75))',GP='drop-shadow(0 0 7cqw rgba(255,130,20,.55))';
@@ -378,7 +405,7 @@ function syncAudio(seek){if(!unlocked||muted)return;if(playing){if(au.paused)au.
 function unlock(){if(unlocked)return;unlocked=true;au.currentTime=t;if(playing)au.play().catch(()=>{unlocked=false})}
 addEventListener('pointerdown',unlock);addEventListener('keydown',unlock);
 au.play().then(()=>{unlocked=true}).catch(()=>{});
-function set(x,seek){const wrap=x<t-1;t=Math.max(0,Math.min(D,x));au.volume=.9*Math.max(0,Math.min(1,(D-t)/.2));all.forEach(a=>a.currentTime=t*1000);syncAudio(seek||wrap);rg.value=t*1000;tm.textContent=f(t)+' / '+f(Math.ceil(D))}
+function set(x,seek){const wrap=x<t-1;t=Math.max(0,Math.min(D,x));au.volume=.9*Math.max(0,Math.min(1,(D-t)/.2));_seek(t*1000);syncAudio(seek||wrap);rg.value=t*1000;tm.textContent=f(t)+' / '+f(Math.ceil(D))}
 function tick(n){const dt=Math.min((n-last)/1000,.1);last=n;if(playing){let x=t+dt;if(x>=D)x=0;set(x)}requestAnimationFrame(tick)}
 pp.onclick=()=>{playing=!playing;pp.textContent=playing?'⏸':'▶';syncAudio(true)};$('rs').onclick=()=>set(0,true);
 $('snd').onclick=()=>{muted=!muted;$('snd').textContent=muted?'🔇':'🔊';if(muted)au.pause();else{unlocked=true;syncAudio(true)}};rg.oninput=()=>set(rg.value/1000,true);
@@ -390,7 +417,7 @@ addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();pp.click(
    кольцо крутится, сжимается к кольцу лого и гаснет, пока рисуется #rc */
 const morph={els:[],anims:[]};
 function buildMorph(){
-  morph.anims.forEach(a=>{a.cancel();const i=all.indexOf(a);if(i>=0)all.splice(i,1)});
+  morph.anims.forEach(a=>{a.cancel();const i=all.indexOf(a);if(i>=0)all.splice(i,1)});_bump();
   morph.els.forEach(e=>e.remove());morph.anims=[];morph.els=[];
   const mA=(el,kf,s,d,o)=>{const a=A(el,kf,s,d,o);morph.anims.push(a);return a};
   const a1=$('a1'),a2=$('a2'),a3=$('a3'),txt=a2.textContent,F=parseFloat(a2.style.fontSize)||12;
@@ -426,7 +453,7 @@ function buildMorph(){
     {opacity:0,filter:'blur(.6cqw) brightness(2)',translate:((i-3.5)*.9).toFixed(1)+'cqw -6cqw'}],2.7+i*.02,.35,{fill:'forwards',easing:'cubic-bezier(.5,0,.8,.4)'}));
   // паук уползает по нити, чтобы не мешать кольцу
   mA(sp1,[{translate:'0 34cqw'},{translate:'0 -50cqw'}],3.0,.55,{fill:'forwards',easing:IN});
-  all.forEach(a=>a.currentTime=t*1000);
+  all.forEach(a=>a.currentTime=t*1000);_bump();
 }
 buildMorph();document.fonts.ready.then(buildMorph);addEventListener('resize',buildMorph);
 rg.max=D*1000;set(0);requestAnimationFrame(tick);
