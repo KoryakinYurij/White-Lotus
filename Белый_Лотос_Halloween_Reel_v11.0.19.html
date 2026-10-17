@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;0,900;1,600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--lav:#d6c6ff;--holo:linear-gradient(100deg,#ec4899,#a855f7 48%,#38bdf8)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--lav:#d6c6ff}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#050309;color:#fff;font-family:Manrope,system-ui,sans-serif}
@@ -29,7 +29,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .fit{display:block;width:max-content;white-space:nowrap;line-height:1.05;text-align:center}
 .wt{color:#fff;text-shadow:0 .5cqw 2.4cqw rgba(8,3,20,.65)}
 .gr,.gr span,.gs span{background:linear-gradient(180deg,#fff0c4 0%,#ffb347 40%,#ff7a1a 72%,#b83e08 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.gw{filter:drop-shadow(0 0 3.2cqw rgba(255,122,26,.55))}
+.gw{filter:drop-shadow(0 0 3.2cqw rgba(255,122,26,.55)) drop-shadow(0 0 .45cqw rgba(8,3,20,.95))}
 /* лого */
 .logo{position:absolute;display:grid;place-items:center;z-index:2}
 .glow{position:absolute;width:130%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.65),rgba(56,189,248,.2) 42%,transparent 70%)}
@@ -209,7 +209,7 @@ const sp1=dec('spider','left:63cqw;top:-2cqw;width:14cqw;z-index:2',{p:'s1',c:'s
 mk('','position:absolute;left:50%;bottom:99%;width:.35cqw;height:70cqw;background:#000;translate:-50% 0;filter:drop-shadow(0 0 .5cqw rgba(168,85,247,.9))',sp1);
 A(sp1,[{translate:'0 -50cqw'},{translate:'0 34cqw'}],.4,.9,{easing:BO});
 A(sp1,[{translate:'0 34cqw'},{translate:'0 38cqw'}],1.5,.5,{direction:'alternate',iterations:2,fill:'none',easing:'ease-in-out'});
-letters($('a1'),-.5,.06,i=>[{top:'1.3em'},{top:'0em'}],.6,'cubic-bezier(.2,.9,.25,1)');
+letters($('a1'),-.5,.06,i=>[{translate:'0 1.3em'},{translate:'0 0em'}],.6,'cubic-bezier(.2,.9,.25,1)');
 A($('a1'),[{filter:'drop-shadow(0 0 3.2cqw rgba(255,122,26,.55))'},{filter:'drop-shadow(0 0 9cqw rgba(255,150,40,.95))'}],1.0,.5,{direction:'alternate',iterations:2,fill:'none'});
 wipe($('a2'),1.0,.55,'translateX(8cqw)');
 A($('a3'),[{opacity:0,transform:'translateY(3cqw)',filter:'blur(.8cqw)'},{opacity:1,transform:'none',filter:'blur(0)'}],1.5,.55);
@@ -374,11 +374,11 @@ fitAll();document.fonts.ready.then(fitAll);addEventListener('resize',fitAll);
 const rg=$('rg'),tm=$('tm'),pp=$('pp'),sf=$('sf'),sfb=$('sfb');let t=0,playing=true,last=performance.now();
 const f=x=>'0:'+String(Math.floor(x)).padStart(2,'0');
 const au=$('au');let unlocked=false,muted=false;au.volume=.9;
-function syncAudio(seek){if(!unlocked||muted)return;if(playing){if(au.paused)au.play().catch(()=>{});if(seek||Math.abs(au.currentTime-t)>.25)au.currentTime=Math.min(t,au.duration||t)}else au.pause()}
+function syncAudio(seek){if(!unlocked||muted)return;if(playing){if(au.paused)au.play().catch(()=>{});const d=au.currentTime-t,a=Math.abs(d);if(seek||a>.5){au.currentTime=Math.min(t,au.duration||t);au.playbackRate=1}else if(a>.04)au.playbackRate=1-Math.max(-.03,Math.min(.03,d*-.2));else au.playbackRate=1}else{au.playbackRate=1;au.pause()}}
 function unlock(){if(unlocked)return;unlocked=true;au.currentTime=t;if(playing)au.play().catch(()=>{unlocked=false})}
 addEventListener('pointerdown',unlock);addEventListener('keydown',unlock);
 au.play().then(()=>{unlocked=true}).catch(()=>{});
-function set(x,seek){const wrap=x<t-1;t=Math.max(0,Math.min(D,x));au.volume=.9*Math.max(0,Math.min(1,(D-t)/.35));all.forEach(a=>a.currentTime=t*1000);syncAudio(seek||wrap);rg.value=t*1000;tm.textContent=f(t)+' / '+f(Math.ceil(D))}
+function set(x,seek){const wrap=x<t-1;t=Math.max(0,Math.min(D,x));au.volume=.9*Math.max(0,Math.min(1,(D-t)/.2));all.forEach(a=>a.currentTime=t*1000);syncAudio(seek||wrap);rg.value=t*1000;tm.textContent=f(t)+' / '+f(Math.ceil(D))}
 function tick(n){const dt=Math.min((n-last)/1000,.1);last=n;if(playing){let x=t+dt;if(x>=D)x=0;set(x)}requestAnimationFrame(tick)}
 pp.onclick=()=>{playing=!playing;pp.textContent=playing?'⏸':'▶';syncAudio(true)};$('rs').onclick=()=>set(0,true);
 $('snd').onclick=()=>{muted=!muted;$('snd').textContent=muted?'🔇':'🔊';if(muted)au.pause();else{unlocked=true;syncAudio(true)}};rg.oninput=()=>set(rg.value/1000,true);
