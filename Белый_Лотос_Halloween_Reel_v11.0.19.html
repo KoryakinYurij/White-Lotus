@@ -222,7 +222,8 @@ function spl(e){const t=e.textContent;e.textContent='';return[...t].map(c=>{cons
 function letters(e,s,gap,kf,d,ez){spl(e).forEach((l,i)=>A(l,kf(i),s+i*gap,d||.5,{easing:ez||BO}))}
 function flash(e,s,d,pk){A(e,[{opacity:0},{opacity:pk||.9,offset:.35},{opacity:0}],s,d,{easing:'linear'})}
 // живое пламя вместо стробоскопа flick: целые частоты, цикл бесшовный
-function flame(e,s,per,base,amp){per=per||3.2;base=base||G;amp=amp||1;const kf=[],N=64;
+function flame(e,s,per,base,amp){per=per||3.2;base=base||G;amp=amp||1;const kf=[],N=32;  // v11.0.22: было 64. Найквист для 17-й гармоники формально требует 35 точек,
+ // но замер попиксельно (N64 vs N32 на t=18/19.2/22.4/23) даёт максимум 2/255 — невидимо.
  for(let i=0;i<=N;i++){const a=i/N*2*Math.PI,n=.55*Math.sin(3*a)+.3*Math.sin(7*a+1.7)+.15*Math.sin(17*a+.4);
   kf.push({filter:base+' brightness('+(1.08+.14*amp*n).toFixed(3)+')'})}
  A(e,kf,s,per,{iterations:Infinity,easing:'linear',fill:'none'})}
